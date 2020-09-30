@@ -1,3 +1,3 @@
 # BigData
 
-This is the Big Data repository, here we'll be uploading all the work for the class.
+This is the development branch, this actually was updated as the default branch so we'll be working on this instead of the master branch.
