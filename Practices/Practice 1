@@ -19,3 +19,27 @@ if(num % 2 == 0){
 
 PUNTO 3) Dada la variable bird = "tweet", utiliza interpolacion de string para imprimir "Estoy ecribiendo un tweet"
 
+PUNTO 4)
+//Dada la variable mensaje = "Hola Luke yo soy tu padre!" utiliza slilce para extraer la
+//secuencia "Luke"
+val mensaje = "Hola Luke yo soy tu padre!"
+
+//la funcion almacenada "slice" hace el trabajo de partir el value desde el indice 5 hasta el 9, saltandose el 5.
+mensaje.slice(5,9)
+
+PUNTO 5)
+//Cual es la diferencia entre value y una variable en scala?
+
+//Angeles Valadez Jonathan
+/*
+Una variable en scala puede alterar su valor si se da el caso y este solo recibe enteros,
+mientras que un value, es constante y dependiendo de su valor, el tipo del mismo puede
+cambiar a entero, string o any.
+*/
+
+PUNTO 6)
+//Dada la tupla (2,4,5,1,2,3,3.1416,23) regresa el numero 3.1416 
+val Numeros = (2,4,5,1,2,3,3.1416,23)
+
+//De la tubla Numeros, sacamos el numero en la posicion 7
+Numeros._7
