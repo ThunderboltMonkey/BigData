@@ -1,0 +1,21 @@
+Primera práctica: 
+
+PUNTO 1) Desarrollar un algoritmo en scala que calcule el radio de un circulo
+
+Console.println("Introduce el area del circulo: ")
+val area = readInt()
+val division = area/Math.PI
+val radio = Math.sqrt(division)
+
+PUNTO 2) Desarrollar un algoritmo en scala que me diga si un numero es primo
+
+Console.println("Introduce el area del circulo: ")
+val num = readInt()
+if(num % 2 == 0){
+	println("No es un numero primo")
+}else{
+	prinln("Es un numero primo")
+}
+
+PUNTO 3) Dada la variable bird = "tweet", utiliza interpolacion de string para imprimir "Estoy ecribiendo un tweet"
+
