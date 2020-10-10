@@ -2,22 +2,36 @@ Primera práctica:
 
 PUNTO 1) Desarrollar un algoritmo en scala que calcule el radio de un circulo
 
+// Esta instrucción nos permite imprimir en pantalla un texto
 Console.println("Introduce el area del circulo: ")
+// Esta instrucción nos permite que el usuario ingrese mediante el teclado el valor de la variable area
 val area = readInt()
+// Operación matemática que se asigna a la variable division
 val division = area/Math.PI
+// Operación matemática que se asigna a la variable radio
 val radio = Math.sqrt(division)
 
 PUNTO 2) Desarrollar un algoritmo en scala que me diga si un numero es primo
 
+// Esta instrucción nos permite imprimir en pantalla un texto
 Console.println("Introduce el area del circulo: ")
+// Esta instrucción nos permite que el usuario ingrese mediante el teclado el valor de la variable area
 val num = readInt()
+// Condicional IF que evalua si el módulo del número ingresado es igual a 0
 if(num % 2 == 0){
+	// En caso de que el módulo sea igual a 0, se imprime en pantalla que el número no es primo
 	println("No es un numero primo")
+		// En caso de que el módulo no sea igual a 0, se imprime en pantalla que el número es primo
 }else{
 	prinln("Es un numero primo")
 }
 
 PUNTO 3) Dada la variable bird = "tweet", utiliza interpolacion de string para imprimir "Estoy ecribiendo un tweet"
+// En esta linea declaramos una variable que contiene el texto "tweet"
+val bird = "tweet"
+// Usamos la interpolación para imprimir en pantalla el texto solicitado
+println(s"Estoy escribiendo un $bird")
+
 
 PUNTO 4)
 //Dada la variable mensaje = "Hola Luke yo soy tu padre!" utiliza slilce para extraer la
@@ -35,6 +49,13 @@ PUNTO 5)
 Una variable en scala puede alterar su valor si se da el caso y este solo recibe enteros,
 mientras que un value, es constante y dependiendo de su valor, el tipo del mismo puede
 cambiar a entero, string o any.
+*/
+
+//Fabian Eduardo Castillo Solis
+/*
+Una variable siempre puede cambiar el valor de la misma si se requiere pero tiene la característica
+de solo operar con enteros mientras que un value es constante, es decir, no cambia y dependiendo el
+valor del mismo puede cambiarse de tipo.
 */
 
 PUNTO 6)
