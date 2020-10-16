@@ -6,6 +6,14 @@
 // println(isEven(3))
 // Practice 3, analyse the following code with your own words
 
+/*
+Angeles Valadez Jonathan
+The function listEvens was declared so that a new list would be created from an existing list of numbers
+and it would return a string value, it starts with a for going through the list element by element
+calculating the module of a number which is 2, and if the residual comes back as 0 then it is even,
+if it comes back different then it means it is an odd number, and once it's done with all the elements,
+it returns the string "Done".
+*/
 
 def listEvens(list:List[Int]): String ={
     for(n <- list){
@@ -18,6 +26,10 @@ def listEvens(list:List[Int]): String ={
     return "Done"
 }
 
+/*
+Angeles Valadez Jonathan
+Creation of 2 lists and using the function listEvens to determine which nmumbers are odd and which are even
+*/
 val l = List(1,2,3,4,5,6,7,8)
 val l2 = List(4,3,22,55,7,8)
 listEvens(l)
@@ -32,6 +44,13 @@ listEvens(l2)
 
 
 //3 7 afortunado
+/*
+Angeles Valadez Jonathan
+The function afortunado utilizes a list so that it can make a sum with a condition,
+if the element in the current index is different than 7, it will add the number to 
+the variable 'res', but it is equal to 7, it will sum 14 to the variable 'res', at the end of the cycle,
+it will print the final result of 'res'.
+*/
 def afortunado(list:List[Int]): Int={
     var res=0
     for(n <- list){
@@ -44,6 +63,11 @@ def afortunado(list:List[Int]): Int={
     return res
 }
 
+/*
+Angeles Valadez Jonathan
+The creation of the list 'af' and the usage of the function
+afortunado.
+*/
 val af= List(1,7,7)
 println(afortunado(af))
 
@@ -60,7 +84,15 @@ println(afortunado(af))
 
 
 // Code 3
-
+/*
+Angeles Valadez Jonathan
+The function balance starts with 2 variables, 'primera' and
+'segunda', primera starts at 0 and segunda starts with the sum of the
+numbers in the list that you give when you call this function, the function
+returns a true if at any moment primera and segunda are the same, the stored function
+for checks the list through each index and adds the number in the current index to primera,
+while segunda subtracts the number in the index from itself.
+*/
 def balance(list:List[Int]): Boolean={
     var primera = 0
     var segunda = 0
@@ -78,6 +110,11 @@ def balance(list:List[Int]): Boolean={
     return false 
 }
 
+/*
+Angeles Valadez Jonathan
+Creation of the lists to use the function balance and check if it works.
+*/
+
 val bl = List(3,2,1)
 val bl2 = List(2,3,3,2)
 val bl3 = List(10,30,90)
@@ -86,10 +123,21 @@ balance(bl)
 balance(bl2)
 balance(bl3)
 
+/*
+Angeles Valadez Jonathan
+The function palindromo, basically checks if a string is a palindrome, which is
+a word that stays the same even if it is written backwards.
+*/
 
 def palindromo(palabra:String):Boolean ={
     return (palabra == palabra.reverse)
 }
+
+/*
+Angeles Valadez Jonathan
+The creation of the string values so we can check if the function 'palindromo'
+is working correctly.
+*/
 
 val palabra = "OSO"
 val palabra2 = "ANNA"
