@@ -91,3 +91,31 @@ fibonacci(15)
 // by the teacher we create a for cycle which will iterate from 0 to the number that we give to the algorithm.
 // This for cycle will do 2 things: first will add b + a to the var b and then will substract a from b and that
 // will be assigned to the var a. Finally it will return the result.
+
+// ALGORITHM 5: ITERATIVE VERSION WITH VECTORS
+
+def fibonacci(num:Int):Int={
+    if(num<2){
+        return num
+    }else{
+        var vector = new Array[Int](num+1)
+        vector(0) = 0
+        vector(1) = 1
+        for (k <- Range(2,num+1)){
+            vector(k)=vector(k-1)+vector(k-2)
+        }
+        return vector(num)
+    }
+}
+
+fibonacci(5)
+fibonacci(10)
+fibonacci(15)
+
+// CASTILLO SOLIS FABIAN EDUARDO
+// In the first line of algorithm 5, we create a function that will receive and throw an Integer
+// as a result, then create an if statement which if the number is less than 2 it will return the same exact number.
+// If not then, we declared a vector which will take integers, in the position 0 we assign a zero, and in the position
+// 1 we will assign the number one, then we create a for cycle which will iterate from 0 to the number that we give to the algorithm.
+// This for cycle will assign to the vector in the current position (k) is going to assign to the vector in position k, the sum resulting 
+// from the last and penultimate position, finally it will return the calculated result.
