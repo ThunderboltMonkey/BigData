@@ -1,53 +1,48 @@
-// PUNTO 1)
-// Crea una lista llamada "lista" con los elementos "rojo", "blanco", "negro"
-val lista = collection.mutable.Set("rojo","blanco","negro")
+# 1) Create a list called "list" with the elements "red", "white", "black"
 
-// PUNTO 2)
-// Añadir 5 elementos mas a "lista" "verde" ,"amarillo", "azul", "naranja", "perla"
-lista += "verde"
-lista += "amarillo"
-lista += "azul"
-lista += "naranja"
-lista += "perla"
+    val list = collection.mutable.Set ("red", "white", "black")
 
-// PUNTO 3)
-// Traer los elementos de "lista" "verde", "amarillo", "azul"
-val lista1 = lista.slice(1,3)
-val lista2 = lista.slice(6,7)
-val listaFinal = list.concat(lista1, lista2)
+# 2) Add 5 more items to "list" "green", "yellow", "blue", "orange", "pearl"
 
-// PUNTO 4)
-// Crea un arreglo de numero en rango del 1-1000 en pasos de 5 en 5
-// Con este método se crea un arreglo, el primer parámetro es el límite inferior del rango
-// el segundo parámetro es el límite superior del rango y el último parámetro es el número de pasos
-// en que se mostrará la secuencia de números del arreglo, si se omite este parámetro por default 
-// el número de pasos se hará de uno en uno
-Range(1,1000,5)
+    list + = "green"
+    list + = "yellow"
+    list + = "blue"
+    list + = "orange"
+    list + = "pearl"
 
-// PUNTO 5) 
-//Cuales son los elementos unicos de la lista Lista(1,3,3,4,6,7,3,7) utilice conversion a conjuntos
+# 3) Bring the items from "list" "green", "yellow", "blue"
 
-//Creo la lista de enteros
-val listN = List(1,2,3,4,2,3,4,99)
+    val list1 = list.slice (1,3)
+    val list2 = list.slice (6,7)
+    val endList = list.concat (list1, list2)
 
-//Hago un convert a conjunto con la lista de enteros 
-val conjunto = listaN.toSet
+ # 4) Create an array of numbers in the range 1-1000 in steps of 5 by 5
+ 
+    // With this method an array is created, the first parameter is the lower limit of the range
+    // the second parameter is the upper limit of the range and the last parameter is the number of steps
+    // in which the sequence of numbers of the array will be displayed, if this parameter is omitted by default
+    // the number of steps will be done one by one
+    Range (1,1000,5)
 
-//Imprimo el conjunto
-conjunto
+# 5) What are the unique elements of the list List (1,3,3,4,6,7,3,7) use conversion to sets
 
-// PUNTO 6) 
-//  Crea una mapa mutable llamado nombres que contenga los siguiente
-//  "Jose", 20, "Luis", 24, "Ana", 23, "Susana", "27"
+    // Create the list of integers
+    val listN = List (1,2,3,4,2,3,4,99)
 
-val MapaMutable = collection.mutable.Map(("Jose", 20), ("Luis", 24), ("Ana", 23), ("Susana", "27"))
+    // Do a convert to set with the list of integers
+    val set = listN.toSet
 
-// PUNTO 6 a) 
-//  Imprime todas la llaves del mapa
+    // Print the set
+    set
 
-MapaMutable.keys
+# 6) Create a mutable map named names that contains the following "Jose", 20, "Luis", 24, "Ana", 23, "Susana", "27"
 
-// PUNTO 7 b) 
-//  Agrega el siguiente valor al mapa("Miguel", 23)
+    val MapaMutable = collection.mutable.Map (("Jose", 20), ("Luis", 24), ("Ana", 23), ("Susana", "27"))
 
-MapaMutable += ("Miguel" -> 23)
+# 6 A) Print all the keys on the map
+
+    MapMutable.keys
+
+# 7 B) Add the following value to the map ("Miguel", 23)
+
+    MapMutable + = ("Miguel" -> 23)
