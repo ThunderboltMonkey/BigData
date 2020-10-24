@@ -25,14 +25,25 @@ df.describe().show
  df2.show()
 
 // 8) Which day had the highest value on the column "Close"
+//First attempt, shows all instead of 1 result
 df.groupBy(dayofmonth(df("Date")).alias("Day")).max("Close").sort(asc("Day")).show()
 
+//Used for conformation so we can be sure the result is correct
 df.select(max("Close")).show()
+
+//Second attempt, Shows the final result 
+df.select("Date","Close").groupBy(dayofweek(df("Date")).alias("Day")).max("Close").sort(asc("Day")).show(1)
+
 
 // 9) In your own words on a code commentary, describe: Which is the significate of the "Close" column
 /*
 CASTILLO SOLIS FABIAN EDUARDO
 This column it´s the calculation of the mean between the columns "High" and "Low"
+*/
+
+//Angeles Valadez Jonathan
+/*
+Close describe basicamente el promedio con el que se cerro el dia.
 */
 
 // 10) Calculate the max and min of the "Volumne" column
