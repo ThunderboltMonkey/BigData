@@ -5,6 +5,7 @@ import org.apache.spark.sql.SparkSession
 val spark = SparkSession.builder().getOrCreate()
 // 2) Load the CSV file named "Netflix_2011_2016.csv"
 val df = spark.read.option("header", "true").option("inferSchema","true")csv("Netflix_2011_2016.csv")
+val df = spark.read.option("header", "true").option("inferSchema","true")csv("C:/Users/jonat/Downloads/Netflix_2011_2016.csv")
 
 // 3) Which are the column names?
 df.columns
@@ -13,7 +14,7 @@ df.columns
 df.printSchema()
 
 // 5) Print the first 5 columns
-df.columns(1:5)  
+df.columns.take(5)  
 
 // 6) Use the funtion describe() to learn about the DataFrame
 df.describe().show
@@ -58,8 +59,9 @@ df.select(min("Volume")).show()
 val lessTSH = df.filter($"Close" < 600).count()
 
 // 11-B) Which percent of the time of the "High" column was higher than $500?
-val time = df.filter($"High" > 500).count()
-val time1 = time * .100
+val tiempo = df.filter($"High" > 500).count()
+val tiempo1= (tiempo * 100)/1259
+var tiempo3:Float = (tiempo * 100)/1259
 
 // 11-C) What is the Pearson correlation between the "High" and "Volume" column
 df.select(corr("High", "Volume").alias("correlacion")).show()
