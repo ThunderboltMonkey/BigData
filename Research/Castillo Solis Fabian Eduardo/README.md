@@ -49,7 +49,7 @@ To carry out the Pearson correlation it is necessary to fulfill the following:
 
 The formulas for calculating the Pearson correlation coefficient are as follows:
 
-![Pearson formulas](https://github.com/ThunderboltMonkey/BigData/blob/unit_1/Research/Castillo%20Solis%20Fabian%20Eduardo/Pearson.png)
+
 
 Where: __"x"__ is equal to variable number one, __"y"__ belongs to variable number two, __"zx"__ is the standard deviation of variable one, __"zy"__ is the standard deviation of variable two and __"N"__ is is number of data.
 
