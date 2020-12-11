@@ -1,81 +1,84 @@
-// Importamos las siguientes dos bibliotecas que son necesarias para utilizar el MLPC
+// We have to import the following two libraries that are necessary to use the MLPC
 import org.apache.spark.ml.classification.MultilayerPerceptronClassifier
 import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 
-// Importamos la siguiente biblioteca que nos permitirá realizar el etiquetado correspondiente
+// We have to import the following library that will allow us to carry out the corresponding labeling
 import org.apache.spark.ml.feature.StringIndexer 
 
-// Importamos la siguiente biblioteca que vamos a necesitar para unir todas las columnas en un solo vector
+// We have to import the following library that we are going to need to join all the columns in a single vector
 import org.apache.spark.ml.feature.VectorAssembler
 
-// Despues iniciamos nuestra sesión de spark
+// We have to initialize our spark session
 import org.apache.spark.sql.SparkSession
 val spark = SparkSession.builder().getOrCreate()
 
-// Importamos nuestros datos y los guardamos en el dataframe "df"
+// We import our data and save it in the dataframe "df"
  val df = spark.read.option("header", "true").option("inferSchema","true")csv("C:/Users/Monkey/Desktop/iris.csv")
 
-// Imprimimos los nombres de las columnas
+// We print the column names
 df.columns
 
-// Imprimimos el esquema de los datos
+// We print the schema of the data
 df.printSchema()
 
-// Imprimimos las primeras 5 columnas
+// We take the first 5 columns
 df.columns.take(5)  
 
-// Usamo el método describe para aprender más sobre los datos
+// We use the describe method to learn more about the data
 df.describe().show
 
-// Usamos el método StringIndexer para transformar una columna de cadenas de etiquetas en una columna de índices de etiquetas
-// En este caso la columna que vamos a transformar es la columna "species" y le vamos a asignar el nombre de "indexedLabel" a
-// la nueva columna, por último le vamos a ajustar los datos del dataframe "df"
+// We use the StringIndexer method to transform a column of label strings into a column of label indexes.
+// In this case, the column that we are going to transform is the column "species" and we are going to assign
+// the name of "indexedLabel" to the new column, finally we are going to adjust the data of the dataframe "df"
 val labelIndexer = new StringIndexer().setInputCol("species").setOutputCol("indexedLabel").fit(df)
 
-// Ahora lo que haremos es sustituir la columna "species" con nuestra columna "indexedLabel" y la vamos a mostrar con el
-// nombre de "label"
+// Now what we will do is replace the column "species" with our column "indexedLabel" and we will show it with the name of "label"
 val indexed = labelIndexer.transform(df).drop("species").withColumnRenamed("indexedLabel", "label")
-// Utilizamos los métodos "describe" y "show" para visualizar la nueva estructura con los cambios ya mencionados
+
+// We use the "describe" and "show" methods to view the new structure with the aforementioned changes
 indexed.describe().show()
 
-// Usamos el método VectorAssembler para unir varias columnas en un vector
-// Nuestro assembler toma las columnas del dataset y las transforma en el vector llamado "features"
+// We use the VectorAssembler method to join several columns in a vector
+// Our assembler takes the columns of the dataset and transforms them into the vector called "features"
 val assembler = new VectorAssembler().setInputCols(Array("sepal_length","sepal_width","petal_length","petal_width")).setOutputCol("features")
-// Entonces creamos nuestro valor de features y con la función transform de nuestro assembler transformamos nuestro set de datos "indexed"
-// que recordemos es el que ya está procesado por así decirlo
+
+// Then we create our features value and with the transform function of our assembler we transform our 
+// "indexed" data set that we remember is the one that is already processed
 val  features = assembler.transform(indexed)
 
-// Usamos el método StringIndexed nuevamente para pasarle la columna "label" y obtener la columna "indexedLabel"
-// por último le ajustamos los datos procesados del dataframe "indexed"
+// We use the StringIndexed method again to pass it the "label" column and obtain the "indexedLabel" column.
+// Finally, we adjust the processed data of the "indexed" dataframe.
 val labelIndexer = new StringIndexer().setInputCol("label").setOutputCol("indexedLabel").fit(indexed)
-// Imprimimos las etiquetas que fueron encontradas
+
+// We print the labels that were found
 println(s"Found labels: ${labelIndexer.labels.mkString("[", ", ", "]")}")
-// Imprimimos nuestro dataframe y podemos observar que la última columna es el conjunto de todas las columnas anteriores
+
+// We print our dataframe and we can see that the last column is the set of all the previous columns
 features.show
 
-// Separamos nuestro dataset un 70% en datos de entrenamiento y el 30% en datos de prueba, establecemos la semilla de aleatoriedad
+// We separate our dataset 70% in training data and 30% in test data, we establish the randomness seed
 val splits = features.randomSplit(Array(0.7, 0.3), seed = 1234L)
 val train = splits(0)
 val test = splits(1)
 
-// Establecemos nuestras capas para la red neuronal, de tamaño 4 para la capa de entrada (features), dos en la capa intermedia (hidden layer) de tamaño 5 y 4,
-// por último nuestra capa de salida de tamaño 3 (classes)
+// We establish our layers for the neural network, of size 4 for the input layer (features), two in the
+// intermediate layer (hidden layer) of size 5 and 4, finally our output layer of size 3 (classes)
 val layers = Array[Int](4, 5, 4, 3)
 
-// Usamos el método "MultilayerPerceptronClassifier" para crear nuestro entrenador y le pasamos sus respectivos parámetros como
-// las capas, el tamaño del bloque, la semilla de aleatoriedad y el máximo de iteraciones
+// We use the "MultilayerPerceptronClassifier" method to create our trainer and we pass their respective
+// parameters such as layers, block size, randomness seed and maximum iterations.
 val trainer = new MultilayerPerceptronClassifier().setLayers(layers).setBlockSize(128).setSeed(1234L).setMaxIter(100)
 
-// Entrenamos el modelo con nuestro entrenador y le pasamos los datos de entrenamiento (70%)
+// We train the model with our trainer and pass it the training data (70%)
 val model = trainer.fit(train)
 
-// Ponemos a prueba nuestro modelo con los datos de prueba (30%)
+// We test our model with the test data (30%)
 val result = model.transform(test)
 
-// Hacemos nuestra predicción y la mostramos
+// We make our prediction and show it
 val predictionAndLabels = result.select("prediction", "label")
 predictionAndLabels.show
 
-// Evaluamos la precisión de nuestro modelo y por último imprimimos dicho valor
+// We evaluate the precision of our model and finally we print this value
 val evaluator = new MulticlassClassificationEvaluator().setMetricName("accuracy")
 println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
