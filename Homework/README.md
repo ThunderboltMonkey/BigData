@@ -1,8 +1,9 @@
-# BigData
+ELBOW METHOD
+What is the elbow method?
+In cluster analysis, the elbow method is a heuristic used in determining the number of clusters in a data set. The method consists of plotting the explained variation as a function of the number of clusters, and picking the elbow of the curve as the number of clusters to use.
 
-## This is the unit 1 branch: in this branch we'll be doing all the work for the unit 1, it will contain folders for the following:
+![Image for reference 1]()
 
-- ## __[Homework:](https://github.com/ThunderboltMonkey/BigData/tree/unit_1/Homework)__ This folder is for putting all the homework that we got assigned. 
-- ## __[Research:](https://github.com/ThunderboltMonkey/BigData/tree/unit_1/Research)__ This folder is where we are putting all the investigations.
-- ## __[Practices:](https://github.com/ThunderboltMonkey/BigData/tree/unit_1/Practices)__ This is where the practices will be. 
-- ## __[Evaluation:](https://github.com/ThunderboltMonkey/BigData/tree/unit_1/Evaluation)__ This is for the final evaluation after every unit.
+As show in the figure this is a graph of any given data set we have plot a graph for wcss(with in cluster sum of square). and by applying different no of cluster in Model we calculate wcss. and plot graph . where this graph showing change is less change in wcss value we consider that as elbow point. and this will be the number of valid cluster for given data set.
+
+![Image for reference 2]()
