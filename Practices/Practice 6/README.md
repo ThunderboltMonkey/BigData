@@ -1,8 +1,8 @@
 # Practice 6
 
 ## Tenemos que importar las siguientes bibliotecas
-import org.apache.spark.ml.classification.{LogisticRegression, OneVsRest}
-import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+  import org.apache.spark.ml.classification.{LogisticRegression, OneVsRest}
+  import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 
 ## Importando nuestros datos
 var inputData = spark.read.format("libsvm").load("/opt/spark/data/mllib/sample_multiclass_classification_data.txt")
