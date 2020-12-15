@@ -71,13 +71,13 @@
     
 ## Model evaluation
 
-## For Metrics and Evaluation, import MulticlassMetrics
+## - For Metrics and Evaluation, import MulticlassMetrics
 
-## Convert test results to RDD using .as and .rdd
+## - Convert test results to RDD using .as and .rdd
 
-## Initialize a MulticlassMetrics object
+## - Initialize a MulticlassMetrics object
 
-## Print the Confusion matrix
+## - Print the Confusion matrix
     import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
     val predictionAndLabels = results.select($"prediction",$"label").as[(Double, Double)].rdd
