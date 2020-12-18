@@ -36,5 +36,10 @@
 ## 11- Evaluate the clusters using Within Set Sum of Squared Errors and print the centroids
     val WSSSE = model.computeCost(features)
     println(s"Within set sum of Squared Errors = $WSSSE")
+    
+![WSSSE](https://github.com/ThunderboltMonkey/BigData/blob/unit_3/Evaluation/wssse.jpeg)
+    
     println("Cluster Centers: ")
     model.clusterCenters.foreach(println)
+
+![Clusters](https://github.com/ThunderboltMonkey/BigData/blob/unit_3/Evaluation/clusters.jpeg)
