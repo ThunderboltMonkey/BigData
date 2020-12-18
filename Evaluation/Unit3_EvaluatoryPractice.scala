@@ -14,6 +14,10 @@ import org.apache.spark.ml.clustering.KMeans
 // 5- Load the dataset: "Whole Customers Data"
 val dataset = spark.read.option("header", "true").option("inferSchema","true")csv("C:/Users/Monkey/Desktop/Unit_3/Wholesale customers data.csv")
 
+//File path for Jonathan
+val dataset = spark.read.option("header","true").option("inferSchema","true").csv("C:/Users/jonat/Desktop/BigData-master/Scala_Kmeans/Wholesale_customers_data.csv")
+dataset.show(2)
+
 // 6- Select the following columns: Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen; and name the set as "feature_data"
 val  feature_data  = dataset.select("Fresh","Milk","Grocery","Frozen","Detergents_Paper","Delicassen")
 
