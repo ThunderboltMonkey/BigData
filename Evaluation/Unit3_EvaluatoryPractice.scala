@@ -14,17 +14,17 @@ import org.apache.spark.ml.clustering.KMeans
 // 5- Load the dataset: "Whole Customers Data"
 val dataset = spark.read.option("header", "true").option("inferSchema","true")csv("C:/Users/Monkey/Desktop/Unit_3/Wholesale customers data.csv")
 
-// 6- Select the following columns: Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen; and name the set as "feature_data".
+// 6- Select the following columns: Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen; and name the set as "feature_data"
 val  feature_data  = dataset.select("Fresh","Milk","Grocery","Frozen","Detergents_Paper","Delicassen")
 
 // 7- Import the VectorAssembler and Vector libraries
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.linalg.Vector
 
-// 8- Create a new Vector Assembler object for the feature columns as an input set, keeping in mind that there are no labels.
+// 8- Create a new Vector Assembler object for the feature columns as an input set, keeping in mind that there are no labels
 val assembler = new VectorAssembler().setInputCols(Array("Fresh","Milk","Grocery","Frozen","Detergents_Paper","Delicassen")).setOutputCol("features")
 
-// 9- Use the assembler to transform the set "feature_data".
+// 9- Use the assembler to transform the set "feature_data"
 val  features = assembler.transform(feature_data)
 
 // 10- Create the KMEANS model with k = 3
