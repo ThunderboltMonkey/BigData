@@ -34,5 +34,7 @@ val model = kmeans.fit(features)
 // 11- Evaluate the clusters using Within Set Sum of Squared Errors and print the centroids
 val WSSSE = model.computeCost(features)
 println(s"Within set sum of Squared Errors = $WSSSE")
+
+//11.2. Show the centroids.
 println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
