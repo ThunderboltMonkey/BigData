@@ -20,6 +20,7 @@ dataset.show(2)
 
 // 6- Select the following columns: Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen; and name the set as "feature_data"
 val  feature_data  = dataset.select("Fresh","Milk","Grocery","Frozen","Detergents_Paper","Delicassen")
+feature_data.show(2)
 
 // 7- Import the VectorAssembler and Vector libraries
 import org.apache.spark.ml.feature.VectorAssembler
@@ -30,6 +31,7 @@ val assembler = new VectorAssembler().setInputCols(Array("Fresh","Milk","Grocery
 
 // 9- Use the assembler to transform the set "feature_data"
 val  features = assembler.transform(feature_data)
+features.show(2)
 
 // 10- Create the KMEANS model with k = 3
 val kmeans = new KMeans().setK(3).setSeed(1L)
