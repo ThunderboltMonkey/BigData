@@ -241,14 +241,12 @@ Las máquinas de vector soporte se fundamentan en el clasificador de margen máx
     println("Accuracy: " + metrics.accuracy) 
     println(s"Test Error = ${(1.0 - metrics.accuracy)}")
  
- 
-
 # TABLAS COMPARATIVAS
 
-![Decision Tree Table]()
-![Kmeans Table]()
-![SVM Table]()
-![Final Table]()
+![Decision Tree Table](https://github.com/JonathanAngelesV/BigData/blob/Proyecto/Proyecto/Decision.png)
+![Kmeans Table](https://github.com/JonathanAngelesV/BigData/blob/Proyecto/Proyecto/Kmeans.png)
+![SVM Table](https://github.com/JonathanAngelesV/BigData/blob/Proyecto/Proyecto/SVM.png)
+![Final Table](https://github.com/JonathanAngelesV/BigData/blob/Proyecto/Proyecto/FinalTable.png)
 
 # CONCLUSIONES
 
