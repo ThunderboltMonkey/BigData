@@ -1,4 +1,4 @@
-# Evaluatory practice # 3
+# Evaluatory practice # 3 
 
 ## 1- Import a simple Spark Session
     import org.apache.spark.sql.SparkSession
