@@ -1,3 +1,3 @@
 # BigData
 
-This is the Big Data repository, here we'll be uploading all the work for the class.
+This is the Unit 3 branch, we will be updating this with our work, in this unit we just have the evaluatory practice.
